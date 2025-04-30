@@ -466,40 +466,7 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
   <td width="184" colspan="2" style="width:138.2pt;border:solid windowtext 1.0pt;
   border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
   padding:0cm 5.4pt 0cm 5.4pt">
-  <p class="MsoNormal" align="center" style="text-align:center"><!--[if gte msEquation 12]><m:oMathPara><m:oMath><m:f><m:fPr><span
-      style='font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
-      mso-hansi-font-family:"Cambria Math";font-style:italic;mso-bidi-font-style:
-      normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i style='mso-bidi-font-style:
-      normal'><span lang=EN-US style='font-family:"Cambria Math",serif'><m:r>#</m:r><m:r>Quadruples</m:r></span></i></m:num><m:den><i
-      style='mso-bidi-font-style:normal'><span lang=EN-US style='font-family:
-      "Cambria Math",serif'><m:r>#</m:r><m:r>Comparative</m:r></span></i></m:den></m:f></m:oMath></m:oMathPara><![endif]--><!--[if !msEquation]--><span lang="EN-US" style="font-size:10.5pt;mso-bidi-font-size:11.0pt;font-family:
-  等线;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
-  mso-hansi-theme-font:minor-latin;mso-bidi-font-family:&quot;Times New Roman&quot;;
-  mso-bidi-theme-font:minor-bidi;mso-ligatures:none;mso-ansi-language:EN-US;
-  mso-fareast-language:ZH-CN;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype
-   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
-   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
-   <v:stroke joinstyle="miter"/>
-   <v:formulas>
-    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
-    <v:f eqn="sum @0 1 0"/>
-    <v:f eqn="sum 0 0 @1"/>
-    <v:f eqn="prod @2 1 2"/>
-    <v:f eqn="prod @3 21600 pixelWidth"/>
-    <v:f eqn="prod @3 21600 pixelHeight"/>
-    <v:f eqn="sum @0 0 1"/>
-    <v:f eqn="prod @6 1 2"/>
-    <v:f eqn="prod @7 21600 pixelWidth"/>
-    <v:f eqn="sum @8 21600 0"/>
-    <v:f eqn="prod @7 21600 pixelHeight"/>
-    <v:f eqn="sum @10 21600 0"/>
-   </v:formulas>
-   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
-   <o:lock v:ext="edit" aspectratio="t"/>
-  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:68.25pt;
-   height:31.5pt'>
-   <v:imagedata src="data_stat.files/image001.png" o:title="" chromakey="white"/>
-  </v:shape><![endif]--><!--[if !vml]--><img width="91" height="42" src="data_stat.files/image002.png" v:shapes="_x0000_i1025"><!--[endif]--></span><!--[endif]--></p>
+  <p class="MsoNormal" align="center" style="text-align:center"><span lang="EN-US">#Quadruples/#Comparative</span></p>
   </td>
   <td width="92" style="width:69.15pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
