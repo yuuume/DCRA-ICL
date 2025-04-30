@@ -1,7 +1,8 @@
-// 我们为SOCP任务构建了SOCP-Phone数据集。该数据集收集自京东平台，2021年11月1日至2024年1月15日期间发布的手机产品评论。有关SOCP-Phone的统计信息如下表：
-// <数据统计表格>
-// 我们提供了50个Phone-SOCP数据集的样本，在data/sample_50.json。完整的数据集和代码会在录用之后公布。
-
+<!-- 
+我们为SOCP任务构建了SOCP-Phone数据集。该数据集收集自京东平台，2021年11月1日至2024年1月15日期间发布的手机产品评论。有关SOCP-Phone的统计信息如下表：
+<数据统计表格>
+我们提供了50个Phone-SOCP数据集的样本，在data/sample_50.json。完整的数据集和代码会在录用之后公布。
+-->
 The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to extract quadruple comprising subject, object, category, and preference. We have built the SOCP-Phone dataset for the SOCP task. This dataset is collected from the JD platform, consisting of mobile phone product reviews posted between November 1, 2021, and January 15, 2024. The statistical information for SOCP-Phone is shown in the table below:
 
 <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
@@ -494,5 +495,6 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
   </td>
  </tr>
 </tbody></table>
-
+\#Categories represents the number of aspect categories. \#Sentences indicates the total number of sentences annotated in the dataset, where \#Comparative, \#Non-comparative and \#Multi-comparative refer to the number of comparative sentences, non-comparative sentences and comparative sentences with multiple comparisons, respectively. \#Elements denotes the total number of annotations for comparative elements (Subject, Object, Category, and Preference). \#Quadruples denotes the number of comparative quadruples constructed by combining comparative elements, and is statistically counted based on their comparative preference (Better, Worse, or Equal). \#Quadruples/\#Comparative indicates the average number of quadruples per comparative sentence.
+<br>
 We provide 50 samples of Phone-SOCP in data/sample_50.json. The full dataset and code will be released after acceptance.
