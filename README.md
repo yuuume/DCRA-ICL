@@ -12,11 +12,21 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
       <th>Dev</th>
       <th>Test</th>
       <th>Total</th>
+      <th>#Elements</th>
+      <th>Train</th>
+      <th>Dev</th>
+      <th>Test</th>
+      <th>Total</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>#Comparative</td>
+      <td>1680</td>
+      <td>210</td>
+      <td>210</td>
+      <td>2100</td>
+      <td>Subject</td>
       <td>1680</td>
       <td>210</td>
       <td>210</td>
@@ -28,45 +38,6 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
       <td>210</td>
       <td>210</td>
       <td>2100</td>
-    </tr>
-    <tr>
-      <td>#Multi-Comparative</td>
-      <td>590</td>
-      <td>79</td>
-      <td>69</td>
-      <td>738</td>
-    </tr>
-    <tr>
-      <td><strong>Total</strong></td>
-      <td>3360</td>
-      <td>499</td>
-      <td>489</td>
-      <td>4200</td>
-    </tr>
-  </tbody>
-</table>
-
-<br>
-
-<table border="1">
-  <thead>
-    <tr>
-      <th>#Elements</th>
-      <th>Train</th>
-      <th>Dev</th>
-      <th>Test</th>
-      <th>Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Subject</td>
-      <td>1680</td>
-      <td>210</td>
-      <td>210</td>
-      <td>2100</td>
-    </tr>
-    <tr>
       <td>Object</td>
       <td>1857</td>
       <td>230</td>
@@ -74,6 +45,11 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
       <td>2309</td>
     </tr>
     <tr>
+      <td>#Multi-Comparative</td>
+      <td>590</td>
+      <td>79</td>
+      <td>69</td>
+      <td>738</td>
       <td>Category</td>
       <td>2475</td>
       <td>313</td>
@@ -81,6 +57,11 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
       <td>3082</td>
     </tr>
     <tr>
+      <td><strong>Total</strong></td>
+      <td>3360</td>
+      <td>499</td>
+      <td>489</td>
+      <td>4200</td>
       <td>Preference</td>
       <td>1876</td>
       <td>241</td>
@@ -150,6 +131,7 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
     </tr>
   </tbody>
 </table>
+
 
 
 We provide 50 samples of Phone-SOCP in data/sample_50.json. The full dataset and code will be released after acceptance.
