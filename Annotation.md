@@ -68,10 +68,15 @@ CONNECTIVITY | The ability or ease with which communication connections, chargin
 Each comparison is annotated as a quadruple in the following JSON-like format:
 
 {
+
     "subject": "Apple iPhone 15",
+    
     "object": "Apple iPhone 13",
+    
     "category": "OS#PERFORMANCE",
+    
     "preference": "better"
+    
 }
 
 
