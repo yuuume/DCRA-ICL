@@ -515,7 +515,7 @@ The SOCP Quadruple Extraction task aims to extract quadruple comprising subject,
 </tbody></table>
 
 
-\#Categories represents the number of aspect categories. \#Sentences indicates the total number of sentences annotated in the dataset, where \#Comparative, \#Non-comparative and \#Multi-comparative refer to the number of comparative sentences, non-comparative sentences and comparative sentences with multiple comparisons, respectively. \#Elements denotes the total number of annotations for comparative elements (Subject, Object, Category, and Preference). \#Quadruples denotes the number of comparative quadruples constructed by combining comparative elements, and is statistically counted based on their comparative preference (Better, Worse, or Equal). \#Quadruples/\#Comparative indicates the average number of quadruples per comparative sentence.
+`\#Categories` represents the number of aspect categories. `\#Sentences` indicates the total number of sentences annotated in the dataset, where `\#Comparative`, `\#Non-comparative` and `\#Multi-comparative` refer to the number of comparative sentences, non-comparative sentences and comparative sentences with multiple comparisons, respectively. `\#Elements` denotes the total number of annotations for comparative elements (Subject, Object, Category, and Preference). `\#Quadruples` denotes the number of comparative quadruples constructed by combining comparative elements, and is statistically counted based on their comparative preference (Better, Worse, or Equal). `\#Quadruples/\#Comparative` indicates the average number of quadruples per comparative sentence.
 
 Here is a sample data instance:
 ```
@@ -535,11 +535,11 @@ Here is a sample data instance:
                 ]
 }
 ```
-The 50 samples of Phone-SOCP are provided in "data/sample_50.json". The full dataset will be released after acceptance.
+The 50 samples of Phone-SOCP are provided in `"data/sample_50.json"`. The full dataset will be released after acceptance.
+
 
 ## Annotation
 
-英文翻译如下：
 
 **The annotation details are described in `Annotation.md`.**
 We first introduce the construction of the category system, followed by the annotation schema with illustrative examples. Finally, we present the automatic annotation approach using large language models, along with the prompt design strategy.
