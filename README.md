@@ -537,7 +537,13 @@ Here is a sample data instance:
 ```
 The 50 samples of Phone-SOCP are provided in "data/sample_50.json". The full dataset will be released after acceptance.
 
-<!--
--->
+## Annotation
+
+英文翻译如下：
+
+**The annotation details are described in `Annotation.md`.**
+We first introduce the construction of the category system, followed by the annotation schema with illustrative examples. Finally, we present the automatic annotation approach using large language models, along with the prompt design strategy.
+
+
 
 
