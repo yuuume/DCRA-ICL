@@ -521,18 +521,31 @@ Here is a sample data instance:
 ```
 {
     "_id": "0a171a04782299f20620dfe744aaabb9",
+
     "creationTime": "2023-10-19 17:16:21",
+
     "phoneName": "Apple iPhone 15",
+
     "phoneBrand": "Apple",
+
     "comment": "美滋滋，超便宜买到的才发布没多久的苹果15，体验了灵动岛，手感超级棒，比我的13流畅一些，可能是内存多的缘故，颜色很漂亮，很喜欢，感谢百亿补贴",
+
     "quadList": [
+
                     {
+
                         "subject": "Apple iPhone 15",
+
                         "object": "AppleiPhone 13",
+
                         "preference": "更好",
+
                         "gold_category": "OS#PERFORMANCE"
+
                     }
+
                 ]
+
 }
 ```
 The 50 samples of Phone-SOCP are provided in `"data/sample_50.json"`. The full dataset will be released after acceptance.
