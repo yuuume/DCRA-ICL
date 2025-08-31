@@ -1,8 +1,23 @@
 <!-- 
+COQE是比较观点挖掘的一项重要任务，旨在从产品评论中提取一组比较五元组（subject,object,aspect,opinion,preference）。然而，COQE 在处理隐含属性和观点以及非连续观点表达方面面临挑战，这使得定义和提取都变得复杂。为了解决这些问题，我们提出了主题-对象-类别-偏好（SOCP）任务，旨在抽取四元组（subject,object,category,preference）。
+给定一个包含m个token的产品P和一个包含n个token的对应评论句子R，将它们合并为一个句子S=“这是对P的评论： R”. SOCP任务目的是，首先识别S是否是一个比较句，（如果是）然后提取S中的一组比较四元组：S_SOCP={...(sub, obj, cc, cp)...}。
+其中 sub 表示主体实体，即 P； obj 表示与 sub 进行比较的客体实体；cc ∈ C 表示比较类别，指的是 sub 与 obj 之间进行比较的属性的类别，其中 C 是一组预定义的类别； cp ∈ {BETTER, WORSE, EQUAL} 表示比较偏好，用于指示 sub 相对于 obj 是更好、更差，还是一样。
+-->
+# Task
+
+Given a product containing $m$ tokens $P=\{p_1, p_2, ..., p_m\}$ and a corresponding review sentence containing $n$ tokens $R=\{r_1, r_2, ..., r_n\}$, they are combined into a single sentence $S=\text{`` This is a review of \textit{P}: \textit{R} ''}$. The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to first identify whether $S$ is a comparative sentence, and (if so) then extract a set of comparative quadruples in $S$:
+% \vspace{10pt}
+\begin{equation}
+    {\cal{S}}_{SOCP} = \{..., (sub, obj, cc, cp)_i, ...\},
+\end{equation}
+where $sub$ denotes the subject entity, corresponding to $P$; $obj$ represents the object entity being compared with $sub$; $cc \in \cal{C}$ denotes the comparative category, referring to the category of the aspect being compared between $sub$ and $obj$, where $\cal{C}$ is a predefined set of categories; $cp \in \{\text{BETTER, WORSE, EQUAL}\}$ denotes the comparative preference, indicating whether $sub$ is better than, worse than, or equal to $obj$.
+
+<!-- 
 我们为SOCP任务构建了SOCP-Phone数据集。该数据集收集自京东平台，2021年11月1日至2024年1月15日期间发布的手机产品评论。有关SOCP-Phone的统计信息如下表：
 <数据统计表格>
 我们提供了50个Phone-SOCP数据集的样本，在data/sample_50.json。完整的数据集和代码会在录用之后公布。
 -->
+# DataSet
 The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to extract quadruple comprising subject, object, category, and preference. We have built the SOCP-Phone dataset for the SOCP task. This dataset is collected from the JD platform, consisting of mobile phone product reviews posted between November 1, 2021, and January 15, 2024. The statistical information for SOCP-Phone is shown in the table below:
 <br>
 <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
@@ -501,6 +516,15 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
 
 The 50 samples of Phone-SOCP are provided in "data/sample_50.json". The full dataset and code will be released after acceptance.
 
-The complete code is located in the "code" folder.
+<!--
+我们的任务是抽取（subject，object，category，）
+-->
+# Annotation
+
+We adapt the aspect category system from SemEval-2015 Task 12 for laptops \cite{pontiki-etal-2015-semeval} to the smartphone domain. The category system comprises two primary types of labels: \textbf{Entity Labels} and \textbf{Attribute Labels}. Each unique pair of an entity and an attribute label defines an Aspect Category Label.
 
 The complete category system for smartphones is described in "Category System.md". More details on the annotation of the Phone-SOCP dataset are available in "Details of Annotation.md".
+
+#
+
+The complete code is located in the "code" folder.
