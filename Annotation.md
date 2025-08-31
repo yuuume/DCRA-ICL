@@ -8,7 +8,9 @@ A SOCP quadruple is defined as any sentence or clause in which:
 
 We annotate only explicit comparisons between two phones with clear evaluative preferences.
 
-We begin by introducing the full category taxonomy used for comparison labeling. Then, we detail the annotation schema. Finally, we describe how large language models were employed for annotation.
+We begin by introducing the full category taxonomy used for comparison labeling. 
+Then, we detail the annotation schema. 
+Finally, we describe how large language models were employed for annotation.
 
 ## Category System
 <!--方面类别用于定义评论中所表达观点所涉及的方面类型。我们从针对笔记本电脑的 SemEval-2015 task 12中获得灵感，将其方面类别体系调整到智能手机领域。
@@ -64,21 +66,22 @@ CONNECTIVITY | The ability or ease with which communication connections, chargin
 ## Annotation Schema
 
 Each comparison is annotated as a quadruple in the following JSON-like format:
-```
+
 {
     "subject": "Apple iPhone 15",
     "object": "Apple iPhone 13",
     "category": "OS#PERFORMANCE",
     "preference": "better"
 }
-```
+
+
 A single comment may contain multiple such comparison quadruples.
 
 ### Subject
 
 The **subject** refers to the phone being reviewed. It is typically provided as structured metadata (e.g., product title on the e-commerce platform).
 
-* Format: Brand + Model (e.g., “Apple iPhone 15”, “华为 P60”)
+* Format: Brand + Model (e.g., “Apple iPhone 15”, “Huawei P60”)
 
 * Annotation Guideline:
     * The subject phone is not inferred from the comment itself, but is known from metadata.
@@ -96,7 +99,7 @@ The **object** refers to another phone that the subject is compared to.
 
 * Annotation Guideline:
     * The object must correspond to a valid smartphone model.
-    * Generic categories like "安卓手机" or "iOS设备" are not allowed.
+    * Generic categories like "Android phon" or "iOS device" are not allowed.
     * When the brand is not mentioned, infer it if possible based on model conventions.
 
 * Examples
@@ -135,7 +138,7 @@ The **preference** indicates the comparative outcome between subject and object.
     * Expressed preference must be clearly implied or explicitly stated.
 
 * Examples
-    * This is a review for Huawei nova9 SE: It's already nova9, but it has fewer features than nova7. → {更差}
+    * This is a review for Huawei nova9 SE: It's already nova9, but it has fewer features than nova7. → {worse}
         * Explanation: The reviewer believes the subject is inferior to the object in terms of features, so the preference is annotated as “worse”.
     * This is a review for Meizu 21: Apart from not having a 2k screen, everything else is amazing. The audio quality is a huge step up from 20Pro. → {better}
         * Explanation: The comment suggests the subject has significantly better audio than the object, so the preference is “better”.
