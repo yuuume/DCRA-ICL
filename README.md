@@ -499,5 +499,8 @@ The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to 
 
 \#Categories represents the number of aspect categories. \#Sentences indicates the total number of sentences annotated in the dataset, where \#Comparative, \#Non-comparative and \#Multi-comparative refer to the number of comparative sentences, non-comparative sentences and comparative sentences with multiple comparisons, respectively. \#Elements denotes the total number of annotations for comparative elements (Subject, Object, Category, and Preference). \#Quadruples denotes the number of comparative quadruples constructed by combining comparative elements, and is statistically counted based on their comparative preference (Better, Worse, or Equal). \#Quadruples/\#Comparative indicates the average number of quadruples per comparative sentence.
 
+The 50 samples of Phone-SOCP are provided in "data/sample_50.json". The full dataset and code will be released after acceptance.
 
-We provide 50 samples of Phone-SOCP in data/sample_50.json. The full dataset and code will be released after acceptance.
+The complete code is located in the "code" folder.
+
+The complete category system for smartphones is described in "Category System.md". More details on the annotation of the Phone-SOCP dataset are available in "Details of Annotation.md".
