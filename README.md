@@ -6,10 +6,11 @@ COQE是比较观点挖掘的一项重要任务，旨在从产品评论中提取�
 # Task
 
 Given a product containing $m$ tokens $P=\{p_1, p_2, ..., p_m\}$ and a corresponding review sentence containing $n$ tokens $R=\{r_1, r_2, ..., r_n\}$, they are combined into a single sentence $S=\text{`` This is a review of \textit{P}: \textit{R} ''}$. The Subject-Object-Category-Preference (SOCP) Quadruple Extraction task aims to first identify whether $S$ is a comparative sentence, and (if so) then extract a set of comparative quadruples in $S$:
-% \vspace{10pt}
+
 \begin{equation}
     {\cal{S}}_{SOCP} = \{..., (sub, obj, cc, cp)_i, ...\},
 \end{equation}
+
 where $sub$ denotes the subject entity, corresponding to $P$; $obj$ represents the object entity being compared with $sub$; $cc \in \cal{C}$ denotes the comparative category, referring to the category of the aspect being compared between $sub$ and $obj$, where $\cal{C}$ is a predefined set of categories; $cp \in \{\text{BETTER, WORSE, EQUAL}\}$ denotes the comparative preference, indicating whether $sub$ is better than, worse than, or equal to $obj$.
 
 <!-- 
