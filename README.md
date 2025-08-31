@@ -585,7 +585,80 @@ CONNECTIVITY | The ability or ease with which communication connections, chargin
 
 ## Annotation Schema
 
+Each comparison is annotated as a quadruple in the following JSON-like format:
+{
+    "subject": "Apple iPhone 15",
+    "object": "Apple iPhone 13",
+    "category": "OS#PERFORMANCE",
+    "preference": "更好"
+}
 
-#
+A single comment may contain multiple such comparison quadruples.
 
-The complete code is located in the "code" folder.
+### Subject
+
+The **subject** refers to the phone being reviewed. It is typically provided as structured metadata (e.g., product title on the e-commerce platform).
+
+* Format: Brand + Model (e.g., “Apple iPhone 15”, “华为 P60”)
+
+* Annotation Guideline:
+    * The subject phone is not inferred from the comment itself, but is known from metadata.
+    * It is fixed per comment and remains constant across all extracted quadruples from the same comment.
+
+* Examples
+    * 这是Apple iPhone 13的评论：13外观与12相似，运行流畅了很多！ → {Apple iPhone 13}
+        * 解释：被评论的手机名称是可以从电商平台获取的，在提供评论时，会将手机名称一并提供。
+
+### Object
+
+The **object** refers to another phone that the subject is compared to.
+
+* Format: Brand + Model, even if abbreviated or partially mentioned in the comment.
+
+* Annotation Guideline:
+    * The object must correspond to a valid smartphone model.
+    * Generic categories like "安卓手机" or "iOS设备" are not allowed.
+    * When the brand is not mentioned, infer it if possible based on model conventions.
+
+* Examples
+    * 这是华为 nova9 SE的评论：都nova9了。还不如nova7的功能多。 → {华为 nova7}
+        * 解释：评论中与“nova7”进行了对比，从上下文可以推测出该型号是华为品牌下的，所以object是“华为 nova7”.
+    * 这是vivo X100 Pro的评论：屏幕音效：屏幕感觉跟mate60差不多，音效还可以。拍照效果：拍照真的无敌，非常好看，人像非常舒服好看，自带美颜功能。 → {华为 Mate 60}
+        * 解释：评论中与“mate60”进行了对比，根据现有手机型号设计，mate是华为品牌下的一款型号，所以object标注为“华为 Mate 60”。
+
+### Category
+
+The **category** describes the aspect under comparison, following the Entity#Attribute format.
+
+* Format: ENTITY#ATTRIBUTE(e.g., OS#PERFORMANCE, DISPLAY#QUALITY, CAMERA#GENERAL)
+
+* Annotation Guideline:
+    * Adopt a two-level hierarchical taxonomy.
+    * Use the most specific entity + attribute available.
+    * When unclear, assign #GENERAL to denote overall evaluation of the entity.
+
+* Examples
+    * 这是魅族 21的评论：屏幕除了分辨率不是 2k，其他真的无敌，音效也比 20Pro 有了长足的进步。 → {AUDIO DEVICES#QUALITY}
+        * 评论中对比了“音效”，对应的实体就是音响设备，明确提到了音响效果，所以属性是QUALITY。
+    * 这是Apple iPhone 15 Pro的评论：双十一活动买的，价格太给力了，跟14比拍照有了提升，运行速度没得说 → {CAMERA#GENERAL}
+        * 评论中对比了“拍照”，对应的实体就是摄像头，但是并没有明确提到是摄像头的质量、还是性能更好，所以属性是GENERAL。
+      
+3.4 Preference
+
+The **preference** indicates the comparative outcome between subject and object.
+
+* Must be one of the following three labels:
+    * better – subject is preferred over object
+    * worse – subject is inferior to object
+    * equal – subject and object are considered similar
+
+* Annotation Guideline:
+    * Expressed preference must be clearly implied or explicitly stated.
+
+* Examples
+    * 这是华为 nova9 SE的评论：都nova9了。还不如nova7的功能多。 → {更差}
+        * 解释：对于手机功能，评论中提到“不如nova7”，所以评论者认为subject表现不如object，preference 标注为 worse。
+    * 这是魅族 21的评论：屏幕除了分辨率不是 2k，其他真的无敌，音效也比 20Pro 有了长足的进步。 → {better}
+        * 对于音效，评论中提到“比 20Pro 有了长足的进步”，所以评论者认为subject表现更好，preference 标注为 better。
+    * 这是vivo X100 Pro的评论：屏幕音效：屏幕感觉跟mate60差不多，音效还可以。拍照效果：拍照真的无敌，非常好看，人像非常舒服好看，自带美颜功能。 → {equal}
+        * 对于屏幕，评论中提到“跟mate60差不多”，所以评论者认为subject与object表现一样，preference 标注为 equal。
