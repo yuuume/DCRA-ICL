@@ -531,7 +531,7 @@ A SOCP quadruple is defined as any sentence or clause in which:
 
 We annotate only explicit comparisons between two phones with clear evaluative preferences.
 
-We begin by introducing the full category taxonomy used for comparison labeling. Then, we detail the annotation schema.
+We begin by introducing the full category taxonomy used for comparison labeling. Then, we detail the annotation schema. Finally, we describe how large language models were employed for annotation.
 
 ## Category System
 <!--方面类别用于定义评论中所表达观点所涉及的方面类型。我们从针对笔记本电脑的 SemEval-2015 task 12中获得灵感，将其方面类别体系调整到智能手机领域。
@@ -583,6 +583,7 @@ DESIGN | Appearance (shape, color, appearance), dimensions, weight, quantity, an
 FEATURES | (additional or missing) functions or components, innovations in technology, additional capabilities.
 CONNECTIVITY | The ability or ease with which communication connections, charging connections, and physical interfaces can be connected to peripheral devices.
 
+
 ## Annotation Schema
 
 Each comparison is annotated as a quadruple in the following JSON-like format:
@@ -590,7 +591,7 @@ Each comparison is annotated as a quadruple in the following JSON-like format:
     "subject": "Apple iPhone 15",
     "object": "Apple iPhone 13",
     "category": "OS#PERFORMANCE",
-    "preference": "更好"
+    "preference": "better"
 }
 
 A single comment may contain multiple such comparison quadruples.
@@ -606,8 +607,8 @@ The **subject** refers to the phone being reviewed. It is typically provided as 
     * It is fixed per comment and remains constant across all extracted quadruples from the same comment.
 
 * Examples
-    * 这是Apple iPhone 13的评论：13外观与12相似，运行流畅了很多！ → {Apple iPhone 13}
-        * 解释：被评论的手机名称是可以从电商平台获取的，在提供评论时，会将手机名称一并提供。
+    * This is a review for Apple iPhone 13: The appearance is similar to iPhone 12, and it runs much smoother! → {Apple iPhone 13}
+        * Explanation: The phone being reviewed can be retrieved directly from e-commerce metadata and is provided alongside the comment.
 
 ### Object
 
@@ -621,10 +622,10 @@ The **object** refers to another phone that the subject is compared to.
     * When the brand is not mentioned, infer it if possible based on model conventions.
 
 * Examples
-    * 这是华为 nova9 SE的评论：都nova9了。还不如nova7的功能多。 → {华为 nova7}
-        * 解释：评论中与“nova7”进行了对比，从上下文可以推测出该型号是华为品牌下的，所以object是“华为 nova7”.
-    * 这是vivo X100 Pro的评论：屏幕音效：屏幕感觉跟mate60差不多，音效还可以。拍照效果：拍照真的无敌，非常好看，人像非常舒服好看，自带美颜功能。 → {华为 Mate 60}
-        * 解释：评论中与“mate60”进行了对比，根据现有手机型号设计，mate是华为品牌下的一款型号，所以object标注为“华为 Mate 60”。
+    * This is a review for Huawei nova9 SE: It's already nova9, but it has fewer features than nova7.  → {Huawei nova7}
+        * Explanation: The comment compares the subject to “nova7”, and based on context and known product series, it is inferred to be “Huawei nova7”.
+    * This is a review for vivo X100 Pro: Display and audio—screen feels about the same as mate60, sound is decent. Camera—amazing shots, beautiful portraits, comes with beautify mode. → {Huawei Mate 60}
+        * Explanation: The subject is compared to “mate60”, and based on model naming conventions, “Mate” refers to a Huawei product line, hence the object is annotated as “Huawei Mate 60”.
 
 ### Category
 
@@ -638,12 +639,12 @@ The **category** describes the aspect under comparison, following the Entity#Att
     * When unclear, assign #GENERAL to denote overall evaluation of the entity.
 
 * Examples
-    * 这是魅族 21的评论：屏幕除了分辨率不是 2k，其他真的无敌，音效也比 20Pro 有了长足的进步。 → {AUDIO DEVICES#QUALITY}
-        * 评论中对比了“音效”，对应的实体就是音响设备，明确提到了音响效果，所以属性是QUALITY。
-    * 这是Apple iPhone 15 Pro的评论：双十一活动买的，价格太给力了，跟14比拍照有了提升，运行速度没得说 → {CAMERA#GENERAL}
-        * 评论中对比了“拍照”，对应的实体就是摄像头，但是并没有明确提到是摄像头的质量、还是性能更好，所以属性是GENERAL。
+    * This is a review for Meizu 21: Apart from not having a 2k screen, everything else is amazing. The audio quality is a huge step up from 20Pro. → {AUDIO DEVICES#QUALITY}
+        * Explanation: The comparison is about “audio”, which maps to the entity “AUDIO DEVICES”. The attribute mentioned is clearly about perceived quality.
+    * This is a review for Apple iPhone 15 Pro: Got it during the Double Eleven sale—great price. Compared to iPhone 14, the camera has improved. → {CAMERA#GENERAL}
+        * The comment discusses improvements in “camera” without detailing whether it's about quality or performance, so it is labeled under “GENERAL”.
       
-3.4 Preference
+### Preference
 
 The **preference** indicates the comparative outcome between subject and object.
 
@@ -656,9 +657,24 @@ The **preference** indicates the comparative outcome between subject and object.
     * Expressed preference must be clearly implied or explicitly stated.
 
 * Examples
-    * 这是华为 nova9 SE的评论：都nova9了。还不如nova7的功能多。 → {更差}
-        * 解释：对于手机功能，评论中提到“不如nova7”，所以评论者认为subject表现不如object，preference 标注为 worse。
-    * 这是魅族 21的评论：屏幕除了分辨率不是 2k，其他真的无敌，音效也比 20Pro 有了长足的进步。 → {better}
-        * 对于音效，评论中提到“比 20Pro 有了长足的进步”，所以评论者认为subject表现更好，preference 标注为 better。
-    * 这是vivo X100 Pro的评论：屏幕音效：屏幕感觉跟mate60差不多，音效还可以。拍照效果：拍照真的无敌，非常好看，人像非常舒服好看，自带美颜功能。 → {equal}
-        * 对于屏幕，评论中提到“跟mate60差不多”，所以评论者认为subject与object表现一样，preference 标注为 equal。
+    * This is a review for Huawei nova9 SE: It's already nova9, but it has fewer features than nova7. → {更差}
+        * Explanation: The reviewer believes the subject is inferior to the object in terms of features, so the preference is annotated as “worse”.
+    * This is a review for Meizu 21: Apart from not having a 2k screen, everything else is amazing. The audio quality is a huge step up from 20Pro. → {better}
+        * Explanation: The comment suggests the subject has significantly better audio than the object, so the preference is “better”.
+    * This is a review for vivo X100 Pro: Display and audio—screen feels about the same as mate60, sound is decent. Camera—amazing shots, beautiful portraits, comes with beautify mode. → {equal}
+        Explanation: The reviewer states that the display is “about the same” as mate60, suggesting equality in performance, hence the preference is “equal”.
+
+
+## Automated annotation process
+
+The automated annotation process for the SOCP task is divided into two main phases: **SSubject-Object-Aspect-Preference Quadruplet Extraction** and **Aspect Category Classification**. This two-step approach simplifies the prompt, enabling the LLM to handle each task more efficiently and improving the accuracy of the extraction process.
+
+
+### Subject-Object-Aspect-Preference Quadruplet Extraction
+
+We first select comparison reviews and guide the LLM to extract the comparative subject, comparative object, comparative aspect, and comparative preference step by step. This guiding process is then provided as historical information to the LLM, enabling it to extract the comparative elements. With historical annotations as context, we can directly input new review texts, allowing the LLM to extract the comparative elements. The following table shows the guiding process.
+
+
+
+
+
