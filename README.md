@@ -7,7 +7,7 @@ COQE是比较观点挖掘的一项重要任务，旨在从产品评论中提取�
 
 Given a product containing $m$ tokens $P=\{p_1, p_2, ..., p_m\}$ and a corresponding review sentence containing $n$ tokens $R=\{r_1, r_2, ..., r_n\}$, they are combined into a single sentence $S=\text{`` This is a review of \textit{P}: \textit{R} ''}$. The **Subject-Object-Category-Preference (SOCP) Quadruple Extraction task** aims to first identify whether $S$ is a comparative sentence, and (if so) then extract a set of comparative quadruples in $S$:
 
-    $\cal{S}}_{SOCP} = \{..., (sub, obj, cc, cp)_i, ...\},$
+    $$\cal{S}}_{SOCP} = \{..., (sub, obj, cc, cp)_i, ...\},$$
 
 where $sub$ denotes the subject entity, corresponding to $P$; $obj$ represents the object entity being compared with $sub$; $cc \in \cal{C}$ denotes the comparative category, referring to the category of the aspect being compared between $sub$ and $obj$, where $\cal{C}$ is a predefined set of categories; $cp \in \{\text{BETTER, WORSE, EQUAL}\}$ denotes the comparative preference, indicating whether $sub$ is better than, worse than, or equal to $obj$.
 
@@ -527,14 +527,16 @@ A SOCP quadruple is defined as any sentence or clause in which:
 
 We annotate only explicit comparisons between two phones with clear evaluative preferences.
 
+We begin by introducing the full category taxonomy used for comparison labeling. Then, we detail the annotation schema.
+
 ## Category System
 <!--方面类别用于定义评论中所表达观点所涉及的方面类型。我们从针对笔记本电脑的 SemEval-2015 task 12中获得灵感，将其方面类别体系调整到智能手机领域。
 该分类系统包含两种主要类型的标签：实体标签和属性标签。每个实体标签与属性标签的唯一组合会形成一个“方面类别”标签。
 -->
 
 The category defines the type of aspect involved in the opinion expressed in the review. 
-We adapt the aspect category system from SemEval-2015 Task 12 for laptops \cite{pontiki-etal-2015-semeval} to the smartphone domain. 
-The category system comprises two primary types of labels: **Entity Labels** and **Attribute Labels**. Each unique pair of an entity and an attribute label defines an** Aspect Category Label**.
+We adapt the aspect category system from SemEval-2015 Task 12 for laptops(https://aclanthology.org/S15-2082/) to the smartphone domain. 
+The category system comprises two primary types of labels: **Entity Labels** and **Attribute Labels**. Each unique pair of an entity and an attribute label defines an **Aspect Category Label**.
 
 <!--
 实体标签可以是整部手机（例如 Apple iPhone 15）、手机的有形部分（例如屏幕）或抽象部分（例如分辨率），也可以是制造公司（例如 Apple）以及其提供的服务（例如售前及售后客户支持）。
@@ -576,6 +578,9 @@ USABILITY | Ease or convenience of use, learning, (un)installing, handling, oper
 DESIGN | Appearance (shape, color, appearance), dimensions, weight, quantity, and ergonomics (focusing on the structural design of the phone), placement of components, software design, and warranty duration and terms/conditions.
 FEATURES | (additional or missing) functions or components, innovations in technology, additional capabilities.
 CONNECTIVITY | The ability or ease with which communication connections, charging connections, and physical interfaces can be connected to peripheral devices.
+
+## Annotation Schema
+
 
 #
 
