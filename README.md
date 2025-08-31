@@ -14,7 +14,7 @@ where $sub$ denotes the subject entity, corresponding to $P$; $obj$ represents t
 <!-- 
 我们为SOCP任务构建了SOCP-Phone数据集。该数据集收集自京东平台，2021年11月1日至2024年1月15日期间发布的手机产品评论。有关SOCP-Phone的统计信息如下表：
 <数据统计表格>
-我们提供了50个Phone-SOCP数据集的样本，在data/sample_50.json。完整的数据集和代码会在录用之后公布。
+我们提供了50个Phone-SOCP数据集的样本，在data/sample_50.json。完整的数据集会在录用之后公布。
 -->
 # DataSet
 The SOCP Quadruple Extraction task aims to extract quadruple comprising subject, object, category, and preference. We have built the SOCP-Phone dataset for the SOCP task. This dataset is collected from the JD platform, consisting of mobile phone product reviews posted between November 1, 2021, and January 15, 2024. The statistical information for SOCP-Phone is shown in the table below:
@@ -513,10 +513,9 @@ The SOCP Quadruple Extraction task aims to extract quadruple comprising subject,
 
 \#Categories represents the number of aspect categories. \#Sentences indicates the total number of sentences annotated in the dataset, where \#Comparative, \#Non-comparative and \#Multi-comparative refer to the number of comparative sentences, non-comparative sentences and comparative sentences with multiple comparisons, respectively. \#Elements denotes the total number of annotations for comparative elements (Subject, Object, Category, and Preference). \#Quadruples denotes the number of comparative quadruples constructed by combining comparative elements, and is statistically counted based on their comparative preference (Better, Worse, or Equal). \#Quadruples/\#Comparative indicates the average number of quadruples per comparative sentence.
 
-The 50 samples of Phone-SOCP are provided in "data/sample_50.json". The full dataset and code will be released after acceptance.
+The 50 samples of Phone-SOCP are provided in "data/sample_50.json". The full dataset will be released after acceptance.
 
 <!--
-首先介绍比较类别系统。
 -->
 # Annotation
 
@@ -529,9 +528,54 @@ A SOCP quadruple is defined as any sentence or clause in which:
 We annotate only explicit comparisons between two phones with clear evaluative preferences.
 
 ## Category System
-We adapt the aspect category system from SemEval-2015 Task 12 for laptops \cite{pontiki-etal-2015-semeval} to the smartphone domain. The category system comprises two primary types of labels: \textbf{Entity Labels} and \textbf{Attribute Labels}. Each unique pair of an entity and an attribute label defines an Aspect Category Label.
+<!--方面类别用于定义评论中所表达观点所涉及的方面类型。我们从针对笔记本电脑的 SemEval-2015 task 12中获得灵感，将其方面类别体系调整到智能手机领域。
+该分类系统包含两种主要类型的标签：实体标签和属性标签。每个实体标签与属性标签的唯一组合会形成一个“方面类别”标签。
+-->
 
-The complete category system for smartphones is described in "Category System.md". More details on the annotation of the Phone-SOCP dataset are available in "Details of Annotation.md".
+The category defines the type of aspect involved in the opinion expressed in the review. 
+We adapt the aspect category system from SemEval-2015 Task 12 for laptops \cite{pontiki-etal-2015-semeval} to the smartphone domain. 
+The category system comprises two primary types of labels: **Entity Labels** and **Attribute Labels**. Each unique pair of an entity and an attribute label defines an** Aspect Category Label**.
+
+<!--
+实体标签可以是整部手机（例如 Apple iPhone 15）、手机的有形部分（例如屏幕）或抽象部分（例如分辨率），也可以是制造公司（例如 Apple）以及其提供的服务（例如售前及售后客户支持）。
+属性标签表示与每个实体标签相关的特定的质量或特征。
+下面表格展示了 16 个预定义的实体标签与 8 个预定义的属性标签，以及它们的描述。
+-->
+An entity label can refer to the whole phone (e.g. Apple iPhone 15), its tangible components (e.g. screen) and abstract parts (e.g. resolution), 
+the manufacturing company (e.g. Apple) or the services it provides (e.g. pre- and after-sales customer support). 
+An attribute label denotes the specific qualities or characteristics associated with each entity label. 
+The following tables respectively show 16 predefined entity labels and 8 predefined attribute labels, along with their descriptions.
+<br>
+<br>
+Entity Label(16) | Description
+----| ----
+PHONE | Phone as a whole.
+DISPLAY | Display screen, external screen, internal screen, etc.
+PROCESSOR | CPU.
+MEMORY&STORAGE | Running memory and storage space.
+CAMERA | Camera, front camera, rear camera, etc.
+BATTERY&POWER | Battery and power supply (charger, charging cable).
+COMMUNICATION | Internet connectivity (4G, 5G), Wi-Fi, Bluetooth, etc.
+COOLING | Fans, cooling systems, radiators, etc.
+AUDIO DEVICES | Sound, speakers, headphones, vibration motors, etc.
+PHYSICAL INTERFACE | SIM card slot, physical buttons (power button, volume buttons), ports (Type-C port, Lightning port), and more.
+ACCESSORY | Cell phone case, cell phone film, matching earphone, stylus and so on.
+HARDWARE | Overall hardware configuration.
+OS | Operating systems and their functions.
+APP | Software applications, such as preinstalled apps (memos, settings, browser, etc.).
+SERVICE | Pre- and post-sales customer support, customer service, repair services, product support, replacement policies and staff.
+BRAND | Brands and Companies.
+
+Attribute Label(8) | Description
+----| ----
+GENERAL | A general opinion about the entity as a whole (e.g., cell phone, screen) without focusing on any specific attributes.
+PRICE | Price (cheap or expensive), value for money and cost of services provided by the manufacturer.
+QUALITY | Precision in the construction and design of the product, durability and reliability under normal conditions of use.
+PERFORMANCE | The operational efficiency and handling capacity of a product, especially under high loads or specific operating conditions.
+USABILITY | Ease or convenience of use, learning, (un)installing, handling, operating, setting, navigating, updating, configuring, touching, etc., the experience of use as well as evaluating upgradability, compatibility, and ergonomics (focusing on the software features of the phone).
+DESIGN | Appearance (shape, color, appearance), dimensions, weight, quantity, and ergonomics (focusing on the structural design of the phone), placement of components, software design, and warranty duration and terms/conditions.
+FEATURES | (additional or missing) functions or components, innovations in technology, additional capabilities.
+CONNECTIVITY | The ability or ease with which communication connections, charging connections, and physical interfaces can be connected to peripheral devices.
 
 #
 
