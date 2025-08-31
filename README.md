@@ -517,6 +517,10 @@ The SOCP Quadruple Extraction task aims to extract quadruple comprising subject,
 
 \#Categories represents the number of aspect categories. \#Sentences indicates the total number of sentences annotated in the dataset, where \#Comparative, \#Non-comparative and \#Multi-comparative refer to the number of comparative sentences, non-comparative sentences and comparative sentences with multiple comparisons, respectively. \#Elements denotes the total number of annotations for comparative elements (Subject, Object, Category, and Preference). \#Quadruples denotes the number of comparative quadruples constructed by combining comparative elements, and is statistically counted based on their comparative preference (Better, Worse, or Equal). \#Quadruples/\#Comparative indicates the average number of quadruples per comparative sentence.
 
+Here is a sample data instance:
+
+{ "_id": "0a171a04782299f20620dfe744aaabb9", "creationTime": "2023-10-19 17:16:21", "phoneName": "Apple iPhone 15", "phoneBrand": "Apple", "comment": "美滋滋，超便宜买到的才发布没多久的苹果15，体验了灵动岛，手感超级棒，比我的13流畅一些，可能是内存多的缘故，颜色很漂亮，很喜欢，感谢百亿补贴", "quadList": [ { "subject": "Apple iPhone 15", "object": "AppleiPhone 13", "preference": "更好", "sub_brand": "Apple", "obj_brand": "Apple", "gold_category": "OS#PERFORMANCE" } ] }
+
 The 50 samples of Phone-SOCP are provided in "data/sample_50.json". The full dataset will be released after acceptance.
 
 <!--
