@@ -20,10 +20,10 @@ This repository contains the dataset, annotation guidelines, and source code of 
 Dual-Channel Retrieval-Augmented In-Context Learning for Comparative Opinion Mining.
 
 
-• We introduce a new task named Subject-Object-Category-Preference (SOCP) quadruple extraction, which simplifies the conventional COQE task by merging the aspect and opinion into a unified category dimension. This effectively handles implicit and non-contiguous expressions, while reducing redundancy in opinion representation.
-• We construct Phone-SOCP, a domain-specific dataset tailored for the SOCP task in the smartphone domain. The dataset offers broad brand coverage and reflects up-to-date consumer preferences and market dynamics.
-• We propose DCRA-ICL, a dual-channel retrieval-augmented in-context learning framework that selects demonstrations based on both semantic similarity and category alignment, alleviating the reliance on large-scale annotated data.
-• Extensive experiments on the Phone-SOCP dataset demonstrate the effectiveness of our approach. Additional studies in low-resource and distribution-shift settings fur- ther validate its robustness and generalization capabilities.
+* We introduce a new task named Subject-Object-Category-Preference (SOCP) quadruple extraction, which simplifies the conventional COQE task by merging the aspect and opinion into a unified category dimension. This effectively handles implicit and non-contiguous expressions, while reducing redundancy in opinion representation.
+* We construct Phone-SOCP, a domain-specific dataset tailored for the SOCP task in the smartphone domain. The dataset offers broad brand coverage and reflects up-to-date consumer preferences and market dynamics.
+* We propose DCRA-ICL, a dual-channel retrieval-augmented in-context learning framework that selects demonstrations based on both semantic similarity and category alignment, alleviating the reliance on large-scale annotated data.
+* Extensive experiments on the Phone-SOCP dataset demonstrate the effectiveness of our approach. Additional studies in low-resource and distribution-shift settings fur- ther validate its robustness and generalization capabilities.
 
 
 
