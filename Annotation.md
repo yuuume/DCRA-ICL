@@ -1,4 +1,4 @@
-# Annotation
+# Annotation Guidlines
 
 A SOCP quadruple is defined as any sentence or clause in which:
 * A subject smartphone (usually the phone being reviewed) is compared to
