@@ -35,14 +35,16 @@ The screen is nice and the images comes very clear. ➡ {DISPLAY#GENERAL, positi
 -->
 Below are real samples from SemEval-2015 Task 12:
 
-* The unibody design is edgy ➡ {LAPTOP#DESIGN_FEATURES, positive}
-* The screen is nice and the images comes very clear. ➡ {DISPLAY#GENERAL, positive} {DISPLAY#QUALITY, positive}
+1.  The unibody design is edgy ➡ {LAPTOP#DESIGN_FEATURES, positive}
+2.  The screen is nice and the images comes very clear. ➡ {DISPLAY#GENERAL, positive} {DISPLAY#QUALITY, positive}
+3. Hopefully Amazon will take this back. ➡ {LAPTOP#GENERAL, negative}
+4.	The processor screams. ➡ {CPU#OPERATION_PERFORMANC, positive}
 
-For the first sample, “unibody design” explicitly refers to the overall appearance features of the laptop, without pointing to a specific component; hence, the category is annotated as LAPTOP#DESIGN_FEATURES. 
+For the first example, “unibody design” clearly describes the design feature of the laptop's appearance, without pointing to a specific component; therefore, the category is labeled as LAPTOP#DESIGN_FEATURES. For the second example, “screen is nice” is a general evaluation of the screen as a whole, while “images come very clear” emphasizes visual clarity, which belongs to display quality. Both refer to the screen but describe different attributes, hence the categories are DISPLAY#GENERAL and DISPLAY#QUALITY, respectively.
 
-For the second sample, “screen is nice” is a general evaluation of the screen as a whole, while “images comes very clear” emphasizes visual clarity, which belongs to the display quality dimension. Both mention the screen, but they highlight different attributes, thus the annotations are DISPLAY#GENERAL and DISPLAY#QUALITY, respectively.
+For the third example, no specific component is mentioned; instead, there is dissatisfaction with the entire laptop, so it is categorized as LAPTOP#GENERAL. For the fourth example, “processor” explicitly refers to the CPU, and “screams” indicates that the laptop's performance is very strong, so it is labeled as CPU#OPERATION_PERFORMANCE.
 
-As we can see, SemEval follows a two-level annotation scheme of entity + attribute, prioritizing the mapping between the commented entity and its specific feature. We adopt the same principle in our annotation.
+As we can see, SemEval follows a two-level annotation structure of entity + attribute, prioritizing the matching of the specific entity pointed to by the comment and its corresponding feature. We follow the same approach in our annotation. Therefore, “better visual effects” focuses on the screen's display characteristics and is categorized under DISPLAY#QUALITY, rather than PHONE#DESIGN; “stronger processor” points to the processor's performance and is categorized under PROCESSOR#PERFORMANCE, rather than PHONE#GENERAL. This granularity ensures clarity of categories and maintains semantic consistency.
 
 In addition, we incorporated the official evaluation dimensions of smartphones used on the JD.com platform, adapting the laptop-oriented classification scheme to the smartphone domain. JD.com highlights product aspects such as appearance and design, camera performance, and screen & audio quality. Accordingly, we extracted the entities CAMERA and AUDIO DEVICES from the original broader category MULTIMEDIA DEVICE, while retaining DISPLAY as an independent entity. This refinement improves the applicability of the scheme to real e-commerce scenarios, making the aspect labels directly align with the key dimensions that enterprises and customers focus on in product evaluation.
 
