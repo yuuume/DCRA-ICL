@@ -18,7 +18,7 @@ Finally, we describe how large language models were employed for annotation.
 -->
 
 The category defines the type of aspect involved in the opinion expressed in the review. 
-We adapt the aspect category system from SemEval-2015 Task 12 for laptops(https://aclanthology.org/S15-2082/) to the smartphone domain. 
+We adapt the aspect category system from **SemEval-2015 Task 12 for laptops**(https://aclanthology.org/S15-2082/) to the smartphone domain. 
 The category system comprises two primary types of labels: **Entity Labels** and **Attribute Labels**. Each unique pair of an entity and an attribute label defines an **Aspect Category Label**.
 
 <!--
