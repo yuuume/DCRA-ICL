@@ -22,6 +22,33 @@ We adapt the aspect category system from **SemEval-2015 Task 12 for laptops**(ht
 The category system comprises two primary types of labels: **Entity Labels** and **Attribute Labels**. Each unique pair of an entity and an attribute label defines an **Aspect Category Label**.
 
 <!--
+下面是 SemEval-2015 task 12 的真实样本：
+The unibody design is edgy ➡ { LAPTOP#DESIGN_FEATURES, positive}
+The screen is nice and the images comes very clear. ➡ {DISPLAY#GENERAL, positive} {DISPLAY#QUALITY, positive}
+ 
+对于第一个样本 ，“unibody design” 明确描述的是笔记本的外观设计特征，没有具体指向某一部件，因此类别归为 LAPTOP#DESIGN_FEATURES。对于第二个样本， “screen is nice” 属于对屏幕整体的泛化评价，“images comes very clear” 强调的是视觉清晰度，属于屏幕显示效果，他们都指向了“屏幕”，但描述了不同的属性，因此类别分别是DISPLAY#GENERAL 和 DISPLAY#QUALITY。
+可以看到，semeval在标注是遵循 “部件 + 属性” 的双层结构，优先匹配评论指向的具体实体 - 特征对。我们在标注的时候也是如此。
+
+此外，我们结合京东平台对智能手机的官方评价维度，将laptop的分类体系适用于手机领域。京东平台的评价维度包括“外形外观”“拍照效果”“屏幕音效”等，可以看到，智能手机的关注点会突出拍照、屏幕、音效属性。因此，我们将实体CAMERA、AUDIO DEVICES从原始的MULTIMEDIA DEVICE中提取出来，而实体DISPLAY保留下来。从而，进一步提升了体系对真实电商场景的适配性，使类别标签能直接对应企业产品分析的关注维度。
+
+下面介绍手机领域的类别标签体系：
+-->
+Below are real samples from SemEval-2015 Task 12:
+
+* The unibody design is edgy ➡ {LAPTOP#DESIGN_FEATURES, positive}
+* The screen is nice and the images comes very clear. ➡ {DISPLAY#GENERAL, positive} {DISPLAY#QUALITY, positive}
+
+For the first sample, “unibody design” explicitly refers to the overall appearance features of the laptop, without pointing to a specific component; hence, the category is annotated as LAPTOP#DESIGN_FEATURES. 
+
+For the second sample, “screen is nice” is a general evaluation of the screen as a whole, while “images comes very clear” emphasizes visual clarity, which belongs to the display quality dimension. Both mention the screen, but they highlight different attributes, thus the annotations are DISPLAY#GENERAL and DISPLAY#QUALITY, respectively.
+
+As we can see, SemEval follows a two-level annotation scheme of entity + attribute, prioritizing the mapping between the commented entity and its specific feature. We adopt the same principle in our annotation.
+
+In addition, we incorporated the official evaluation dimensions of smartphones used on the JD.com platform, adapting the laptop-oriented classification scheme to the smartphone domain. JD.com highlights product aspects such as appearance and design, camera performance, and screen & audio quality. Accordingly, we extracted the entities CAMERA and AUDIO DEVICES from the original broader category MULTIMEDIA DEVICE, while retaining DISPLAY as an independent entity. This refinement improves the applicability of the scheme to real e-commerce scenarios, making the aspect labels directly align with the key dimensions that enterprises and customers focus on in product evaluation.
+
+
+Introduction to the category labeling scheme in the smartphone domain:
+<!--
 实体标签可以是整部手机（例如 Apple iPhone 15）、手机的有形部分（例如屏幕）或抽象部分（例如分辨率），也可以是制造公司（例如 Apple）以及其提供的服务（例如售前及售后客户支持）。
 属性标签表示与每个实体标签相关的特定的质量或特征。
 下面表格展示了 16 个预定义的实体标签与 8 个预定义的属性标签，以及它们的描述。
