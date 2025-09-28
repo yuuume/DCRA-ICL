@@ -1,8 +1,32 @@
+<!--
+先说明一下这个文档是什么东西
+此存储库包含我们论文的数据集、数据集标注指南和源代码：
+Dual-Channel Retrieval-Augmented In-Context Learning for Comparative Opinion Mining.
+• We introduce a new task named Subject-Object-Category-Preference (SOCP) quadruple extraction, which simplifies the conventional COQE task by merging the aspect and opinion into a unified category dimension. This effectively handles implicit and non-contiguous expressions, while reducing redundancy in opinion representation.
+• We construct Phone-SOCP, a domain-specific dataset tailored for the SOCP task in the smartphone domain. The dataset offers broad brand coverage and reflects up-to-date consumer preferences and market dynamics.
+• We propose DCRA-ICL, a dual-channel retrieval-augmented in-context learning framework that selects demonstrations based on both semantic similarity and category alignment, alleviating the reliance on large-scale annotated data.
+• Extensive experiments on the Phone-SOCP dataset demonstrate the effectiveness of our approach. Additional studies in low-resource and distribution-shift settings fur- ther validate its robustness and generalization capabilities.
+
+->
+
 <!-- 
 COQE是比较观点挖掘的一项重要任务，旨在从产品评论中提取一组比较五元组（subject,object,aspect,opinion,preference）。然而，COQE 在处理隐含属性和观点以及非连续观点表达方面面临挑战，这使得定义和提取都变得复杂。为了解决这些问题，我们提出了主题-对象-类别-偏好（SOCP）任务，旨在抽取四元组（subject,object,category,preference）。
 给定一个包含m个token的产品P和一个包含n个token的对应评论句子R，将它们合并为一个句子S=“这是对P的评论： R”. SOCP任务目的是，首先识别S是否是一个比较句，（如果是）然后提取S中的一组比较四元组：S_SOCP={...(sub, obj, cc, cp)...}。
 其中 sub 表示主体实体，即 P； obj 表示与 sub 进行比较的客体实体；cc ∈ C 表示比较类别，指的是 sub 与 obj 之间进行比较的属性的类别，其中 C 是一组预定义的类别； cp ∈ {BETTER, WORSE, EQUAL} 表示比较偏好，用于指示 sub 相对于 obj 是更好、更差，还是一样。
 -->
+This repository contains the dataset, annotation guidelines, and source code of our paper:
+
+
+Dual-Channel Retrieval-Augmented In-Context Learning for Comparative Opinion Mining.
+
+
+• We introduce a new task named Subject-Object-Category-Preference (SOCP) quadruple extraction, which simplifies the conventional COQE task by merging the aspect and opinion into a unified category dimension. This effectively handles implicit and non-contiguous expressions, while reducing redundancy in opinion representation.
+• We construct Phone-SOCP, a domain-specific dataset tailored for the SOCP task in the smartphone domain. The dataset offers broad brand coverage and reflects up-to-date consumer preferences and market dynamics.
+• We propose DCRA-ICL, a dual-channel retrieval-augmented in-context learning framework that selects demonstrations based on both semantic similarity and category alignment, alleviating the reliance on large-scale annotated data.
+• Extensive experiments on the Phone-SOCP dataset demonstrate the effectiveness of our approach. Additional studies in low-resource and distribution-shift settings fur- ther validate its robustness and generalization capabilities.
+
+
+
 # Task
 
 Given a product containing $m$ tokens $P=\{p_1, p_2, ..., p_m\}$ and a corresponding review sentence containing $n$ tokens $R=\{r_1, r_2, ..., r_n\}$, they are combined into a single sentence $S=\text{`` This is a review of \textit{P}: \textit{R} ''}$. The **Subject-Object-Category-Preference (SOCP) Quadruple Extraction task** aims to first identify whether $S$ is a comparative sentence, and (if so) then extract a set of comparative quadruples in $S$:
